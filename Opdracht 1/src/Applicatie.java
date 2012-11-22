@@ -1,48 +1,30 @@
-import java.util.Random;
-
-import javax.management.BadAttributeValueExpException;
 
 public class Applicatie {
 
-	int n = 100000;
-	Random random = new Random();
-	int array[] = new int[n];
-
-	public Applicatie() {
-		for (int i = 0; i < n; i++) {
-			int randomNumber = random.nextInt(n);
-			for (int j = 0; j < i; j++) {
-				if (array[j] == randomNumber) {
-					j = -1;
-					randomNumber = random.nextInt(n);
-				}
-			}
-			array[i] = randomNumber;
-		}
-
-//		try {
-//			doubleCheck(array);
-//		} catch (BadAttributeValueExpException e) {
-//			e.printStackTrace();
-//		}
-		for (int i : array) {
-			System.out.print(i + "|");
-		}
-	}
-	
-	public void doubleCheck(int[] checkArray) throws BadAttributeValueExpException {
-		for(int i =0; i < checkArray.length; i++) {
-			int value = checkArray[i];
-			for(int j = 0; j < checkArray.length; j++) {
-				if(j != i)
-				if(checkArray[j] == value)
-					throw new BadAttributeValueExpException(new Object());
-			}
-		}
-	}
-	
-
 	public static void main(String args[]) {
-		new Applicatie();
+		int a1[] = new int[]{5000, 10000, 20000, 50000, 100000};
+		int a2[] = new int[]{100000, 500000, 1000000, 5000000, 10000000};
+		int a3[] = new int[]{5000000, 10000000, 20000000, 40000000, 80000000};
+		
+		System.out.println("Starting Algoritme 1");
+		for(int i = 0; i <= a1.length; i++)
+		{
+			System.out.println("Size of n: " + a1[i]);
+			new Algoritme1(a1[i]);
+		}
+		
+//		System.out.println("Starting Algoritme 2");
+//		for(int i = 0; i <= a2.length; i++)
+//		{
+//			System.out.println("Size of n: " + a2[i]);
+//			new Algoritme1(a2[i]);
+//		}
+//		
+//		System.out.println("Starting Algoritme 3");
+//		for(int i = 0; i <= a3.length; i++)
+//		{
+//			System.out.println("Size of n: " + a3[i]);
+//			new Algoritme1(a3[i]);
+//		}
 	}
 }
