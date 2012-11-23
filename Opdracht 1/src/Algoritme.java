@@ -44,4 +44,27 @@ public class Algoritme {
 		System.out.println(differenceSeconds);
 		System.out.println("----------------------------------");
 	}
+
+	
+	/**
+	 * @param array
+	 * 		controlleert of de gegeven array een geldige permutatie is
+	 */
+	public boolean checkValidPermutatie(int array[])
+	{
+		boolean sortedArray[] = new boolean[array.length];
+		for(int i = 0; i < array.length; i++)
+		{
+			if(!sortedArray[array[i]])
+			{
+				sortedArray[array[i]] = true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		
+		return true;
+	}
 }

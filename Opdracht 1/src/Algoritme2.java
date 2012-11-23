@@ -22,7 +22,7 @@ public class Algoritme2 extends Algoritme{
 		{
 			int randomInt = random.nextInt(n);
 			
-			while(used[randomInt] == true)
+			while(used[randomInt])
 			{
 				randomInt = random.nextInt(n);
 			}
