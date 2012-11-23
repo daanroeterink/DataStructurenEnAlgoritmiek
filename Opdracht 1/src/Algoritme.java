@@ -52,12 +52,12 @@ public class Algoritme {
 	 */
 	public boolean checkValidPermutatie(int array[])
 	{
-		boolean sortedArray[] = new boolean[array.length];
+		boolean checkArray[] = new boolean[array.length];
 		for(int i = 0; i < array.length; i++)
 		{
-			if(!sortedArray[array[i]])
+			if(!checkArray[array[i]])
 			{
-				sortedArray[array[i]] = true;
+				checkArray[array[i]] = true;
 			}
 			else
 			{
