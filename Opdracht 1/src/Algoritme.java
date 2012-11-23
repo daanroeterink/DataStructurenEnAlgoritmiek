@@ -24,11 +24,9 @@ public class Algoritme {
 		long stopTime = System.nanoTime();
 		long difference = stopTime-startTime;
 		double differenceSeconds = difference / 1000000000.0;
-		System.out.println("----------------------------------");
-		System.out.println("Starttime in ns:" + startTime);
-		System.out.println("StopTime in ns:" + stopTime);
 		System.out.println("Elapsed in ns:" + difference);
 		System.out.println("Elapsed in s:" + differenceSeconds);
+		System.out.println(differenceSeconds);
 		System.out.println("----------------------------------");
 	}
 }
