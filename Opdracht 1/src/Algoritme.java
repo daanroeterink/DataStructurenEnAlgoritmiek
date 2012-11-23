@@ -1,5 +1,3 @@
-import java.text.DecimalFormat;
-
 
 /**
  * @author Tom Kostense, Daan Roeterink
