@@ -1,8 +1,16 @@
 import java.util.Random;
 
 
+/**
+ * @author Tom Kostense, Daan Roeterink
+ *
+ */
 public class Algoritme2 extends Algoritme{
 
+	/**
+	 * @param n
+	 * 		de meegegeven n word als grootte gebruik van de te genereren array
+	 */
 	public Algoritme2(int n)
 	{
 		startTimer();
