@@ -8,3 +8,13 @@ Command-line arguments:  -data E:\School\Workspace_Leerjaar_2\DataStructurenEnAl
 
 !ENTRY org.eclipse.osgi 2 1 2012-11-22 18:20:15.028
 !MESSAGE NLS missing message: Activator_legacy_version_uninstall_error in: name.schedenig.eclipse.grepconsole.i18n.messages
+!SESSION 2012-11-29 08:02:48.862 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=nl_NL
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -data E:\School\Workspace_Leerjaar_2\DataStructurenEnAlgoritmiek -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.osgi 2 1 2012-11-29 08:02:58.299
+!MESSAGE NLS missing message: Activator_legacy_version_uninstall_error in: name.schedenig.eclipse.grepconsole.i18n.messages

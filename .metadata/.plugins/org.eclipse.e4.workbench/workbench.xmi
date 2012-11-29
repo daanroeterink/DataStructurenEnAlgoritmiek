@@ -64,7 +64,7 @@
           <tags>persp.actionSet:org.eclipse.wst.server.ui.internal.webbrowser.actionSet</tags>
           <tags>persp.actionSet:org.eclipse.debug.ui.breakpointActionSet</tags>
           <tags>persp.actionSet:org.eclipse.wst.ws.explorer.explorer</tags>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_3ZJDcDTIEeKo6dqrDcRozg" selectedElement="_3ZJDdjTIEeKo6dqrDcRozg" horizontal="true">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_3ZJDcDTIEeKo6dqrDcRozg" selectedElement="_3ZJDcTTIEeKo6dqrDcRozg" horizontal="true">
             <children xsi:type="basic:PartStack" xmi:id="_3ZJDcTTIEeKo6dqrDcRozg" elementId="topLeft" containerData="2500" selectedElement="_3ZJDcjTIEeKo6dqrDcRozg">
               <tags>newtablook</tags>
               <children xsi:type="advanced:Placeholder" xmi:id="_3ZJDcjTIEeKo6dqrDcRozg" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_3XQNEDTIEeKo6dqrDcRozg"/>
