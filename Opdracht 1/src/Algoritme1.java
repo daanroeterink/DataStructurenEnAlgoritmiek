@@ -21,7 +21,7 @@ public class Algoritme1 extends Algoritme{
 		for(int i = 0; i < n; i++ )
 		{
 			int randomInt = random.nextInt(n);
-			for(int j = 0; j < (n-1); j++ )
+			for(int j = 0; j < (i-1); j++ )
 			{
 				if(randomInt == array[j])
 				{

@@ -1,20 +1,17 @@
 public class HeapElement
 {
-
-	/**
-	 * 
-	 */
 	private int data;
-
-	/**
-	 * 
-	 */
 	private HeapElement left;
-
-	/**
-	 * 
-	 */
 	private HeapElement right;
+
+	public HeapElement()
+	{
+	}
+
+	public HeapElement(int data)
+	{
+		this.data = data;
+	}
 
 	public int getData()
 	{
@@ -53,18 +50,6 @@ public class HeapElement
 			return true;
 		}
 		return false;
-	}
-
-	/**
-	 * 
-	 */
-	public HeapElement()
-	{
-	}
-
-	public HeapElement(int data)
-	{
-		this.data = data;
 	}
 
 	public void println()
