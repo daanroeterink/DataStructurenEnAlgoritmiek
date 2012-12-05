@@ -16,73 +16,73 @@ public class Opdracht2
 	/**
 	 * Constructor van Opdracht 2
 	 */
-	public Opdracht2()
-	{
-		root = new HeapElement(N[0]);
-		for (int i = 1; i < N.length; i++)
-		{
-			setNewElement(N[i]);
-		}
-		printResult();
-	}
+//	public Opdracht2()
+//	{
+//		root = new HeapElement(N[0]);
+//		for (int i = 1; i < N.length; i++)
+//		{
+//			setNewElement(N[i]);
+//		}
+//		printResult();
+//	}
 
-	public void setNewElement(int element)
-	{
-		HeapElement heapElement = root;
-		boolean done = false;
-		while (!done)
-		{
-			if (heapElement.getData() > element)
-			{
-				if (heapElement.isSmaller(element))
-				{
-
-					if (heapElement.getLeft() == null)
-					{
-						heapElement.setLeft(new HeapElement(element));
-						done = true;
-					}
-					else if (heapElement.getRight() == null)
-					{
-						heapElement.setRight(new HeapElement(element));
-						done = true;
-					}
-					else if (!heapElement.getLeft().hasEmptySpot() && heapElement.getRight().hasEmptySpot())
-					{
-						heapElement = heapElement.getRight();
-					}
-					else
-					{
-						heapElement = heapElement.getLeft();
-					}
-				}
-				else
-				{
-					if (heapElement.getRight() == null)
-					{
-						int temp = heapElement.getLeft().getData();
-						heapElement.getLeft().setData(element);
-						heapElement = heapElement.getLeft();
-						element = temp;
-					}
-					else
-					{
-						int temp = heapElement.getRight().getData();
-						heapElement.getRight().setData(element);
-						heapElement = heapElement.getRight();
-						element = temp;
-					}
-				}
-			}
-			else
-			{
-				int temp = heapElement.getData();
-				heapElement.setData(element);
-				element = temp;
-			}
-		}
-
-	}
+//	public void setNewElement(int element)
+//	{
+//		HeapElement heapElement = root;
+//		boolean done = false;
+//		while (!done)
+//		{
+//			if (heapElement.getData() > element)
+//			{
+//				if (heapElement.isSmaller(element))
+//				{
+//
+//					if (heapElement.getLeft() == null)
+//					{
+//						heapElement.setLeft(new HeapElement(element));
+//						done = true;
+//					}
+//					else if (heapElement.getRight() == null)
+//					{
+//						heapElement.setRight(new HeapElement(element));
+//						done = true;
+//					}
+//					else if (!heapElement.getLeft().hasEmptySpot() && heapElement.getRight().hasEmptySpot())
+//					{
+//						heapElement = heapElement.getRight();
+//					}
+//					else
+//					{
+//						heapElement = heapElement.getLeft();
+//					}
+//				}
+//				else
+//				{
+//					if (heapElement.getRight() == null)
+//					{
+//						int temp = heapElement.getLeft().getData();
+//						heapElement.getLeft().setData(element);
+//						heapElement = heapElement.getLeft();
+//						element = temp;
+//					}
+//					else
+//					{
+//						int temp = heapElement.getRight().getData();
+//						heapElement.getRight().setData(element);
+//						heapElement = heapElement.getRight();
+//						element = temp;
+//					}
+//				}
+//			}
+//			else
+//			{
+//				int temp = heapElement.getData();
+//				heapElement.setData(element);
+//				element = temp;
+//			}
+//		}
+//
+//	}
 
 	public void printResult()
 	{
@@ -107,6 +107,6 @@ public class Opdracht2
 	 */
 	public static void main(String[] args)
 	{
-		new Opdracht2();
+		new Heab(6);
 	}
 }
