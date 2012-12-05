@@ -2,6 +2,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Class to print heap
+ * @author Micheal kreuzman
+ * http://stackoverflow.com/questions/4965335/how-to-print-binary-tree-diagram
+ * visited:05-12-2012
+ */
 class BTreePrinter {
 
     public static <T extends Integer> void printNode(HeapElement<T> root) {
