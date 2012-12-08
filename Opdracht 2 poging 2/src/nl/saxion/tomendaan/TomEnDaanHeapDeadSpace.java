@@ -6,7 +6,7 @@ package nl.saxion.tomendaan;
  */
 public class TomEnDaanHeapDeadSpace
 {
-	boolean optimalisation = true;
+	boolean optimalisation = false;
 
 	public static final int mSize = 10000;
 
