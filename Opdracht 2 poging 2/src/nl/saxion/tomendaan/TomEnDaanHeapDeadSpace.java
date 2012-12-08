@@ -101,7 +101,7 @@ public class TomEnDaanHeapDeadSpace
 
 	public void push()
 	{
-		if (heapSize > -1)
+		if (heapSize > 0)
 		{
 			int writeValue = popHeap();
 			System.out.println("Write to run writevalue: " + writeValue);
