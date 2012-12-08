@@ -29,17 +29,22 @@ public class TomEnDaanHeapDeadSpace
 		initFillMemory();
 		buildHeap();
 		printArray();
-		for (int i = 0; i < 300; i++)
+		while (app.getNextNumber() != -1)
 		{
 			push();
-			// printArray();
 		}
+		System.out.println("runs: " + runs);
+		// for (int i = 0; i < 300; i++)
+		// {
+		// push();
+		// // printArray();
+		// }
 		app.closeFile();
 	}
 
 	public void initFillMemory()
 	{
-		System.out.println("initFill");
+		// System.out.println("initFill");
 		for (int i = 0; i < heapSize; i++)
 		{
 			memory[i] = randomNumbers[i];
@@ -49,7 +54,7 @@ public class TomEnDaanHeapDeadSpace
 
 	public void buildHeap()
 	{
-		System.out.println("buildheap");
+		// System.out.println("buildheap");
 		for (int i = 0; i < heapSize; i++)
 		{
 			percolateUp(i);
@@ -88,13 +93,13 @@ public class TomEnDaanHeapDeadSpace
 				deadspaceSize++;
 				memory[0] = memory[heapSize];
 				memory[heapSize] = nextNumber;
-				System.out.println("out deadspace: " + nextNumber);
+				// System.out.println("out deadspace: " + nextNumber);
 			}
 			else
 			{
 				memory[0] = nextNumber;
 				percolateDown();
-				System.out.println("out heap: " + nextNumber);
+				// System.out.println("out heap: " + nextNumber);
 			}
 		}
 	}
@@ -104,7 +109,7 @@ public class TomEnDaanHeapDeadSpace
 		if (heapSize > 0)
 		{
 			int writeValue = popHeap();
-			System.out.println("Write to run writevalue: " + writeValue);
+			// System.out.println("Write to run writevalue: " + writeValue);
 			this.app.writeToFile(writeValue);
 		}
 		// buildHeap();
@@ -117,8 +122,8 @@ public class TomEnDaanHeapDeadSpace
 			buildHeap();
 			runs++;
 			this.app.newRun();
-			System.out.println("runs: " + runs);
-			printArray();
+			// System.out.println("runs: " + runs);
+			// printArray();
 		}
 		else
 		{
