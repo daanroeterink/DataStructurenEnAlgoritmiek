@@ -1,14 +1,14 @@
 package nl.saxion.tomendaan;
 
 /**
- * @author Daan
- * 
+ * @author Daan Roeterink
+ * @author Tom Kostense
  */
 public class TomEnDaanHeapDeadSpace
 {
-	boolean optimalisation = false;
+	boolean optimalisation = true;
 
-	public static final int mSize = 100;
+	public static final int mSize = 10000;
 
 	private int heapSize, deadspaceSize;
 
