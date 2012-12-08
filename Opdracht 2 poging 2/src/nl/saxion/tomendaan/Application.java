@@ -61,7 +61,7 @@ public class Application
 		if (scanner.hasNext())
 		{
 			String t = scanner.next();
-			// System.out.println("in: " + t);
+			System.out.println("in: " + t);
 			return Integer.parseInt(t);
 		}
 		return -1;

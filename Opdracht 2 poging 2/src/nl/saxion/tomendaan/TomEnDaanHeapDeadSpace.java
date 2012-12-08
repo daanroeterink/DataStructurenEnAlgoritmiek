@@ -6,8 +6,9 @@ package nl.saxion.tomendaan;
  */
 public class TomEnDaanHeapDeadSpace
 {
+	boolean optimalisation = false;
 
-	public static final int mSize = 8;
+	public static final int mSize = 100;
 
 	private int heapSize, deadspaceSize;
 
@@ -29,16 +30,13 @@ public class TomEnDaanHeapDeadSpace
 		initFillMemory();
 		buildHeap();
 		printArray();
-		while (app.getNextNumber() != -1)
+		int next = app.getNextNumber();
+		while (next != -1)
 		{
-			push();
+			push(next);
+			next = app.getNextNumber();
 		}
 		System.out.println("runs: " + runs);
-		// for (int i = 0; i < 300; i++)
-		// {
-		// push();
-		// // printArray();
-		// }
 		app.closeFile();
 	}
 
@@ -82,9 +80,8 @@ public class TomEnDaanHeapDeadSpace
 		return returnValue;
 	}
 
-	public void add()
+	public void add(int nextNumber)
 	{
-		int nextNumber = app.getNextNumber();
 		if (nextNumber != -1)
 		{
 			if (nextNumber > lastPOP)
@@ -104,10 +101,16 @@ public class TomEnDaanHeapDeadSpace
 		}
 	}
 
-	public void push()
+	public void push(int nextNumber)
 	{
+		boolean inserted = false;
 		if (heapSize > 0)
 		{
+			if (nextNumber < lastPOP && nextNumber > memory[0] && optimalisation)
+			{
+				this.app.writeToFile(nextNumber);
+				inserted = true;
+			}
 			int writeValue = popHeap();
 			// System.out.println("Write to run writevalue: " + writeValue);
 			this.app.writeToFile(writeValue);
@@ -125,9 +128,9 @@ public class TomEnDaanHeapDeadSpace
 			// System.out.println("runs: " + runs);
 			// printArray();
 		}
-		else
+		else if (!inserted)
 		{
-			add();
+			add(nextNumber);
 			percolateDown();
 		}
 	}
