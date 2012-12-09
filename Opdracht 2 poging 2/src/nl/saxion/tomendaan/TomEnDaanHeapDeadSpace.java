@@ -6,53 +6,74 @@ package nl.saxion.tomendaan;
  */
 public class TomEnDaanHeapDeadSpace
 {
-	boolean optimalisation = false;
+	/**
+	 * Set to True when you want to use my optimization. This optimization will check by every push if the next integer
+	 * can be placed in the output file.
+	 */
+	boolean optimisation = false;
 
-	public static final int mSize = 10000;
+	/**
+	 * Maximum size of out memory (heap+deadspace)
+	 */
+	public static final int mSize = 10;
 
 	private int heapSize, deadspaceSize;
 
 	private int[] memory = new int[mSize];
 
-	private int[] randomNumbers;
-
 	private Application app;
 
+	/**
+	 * Keeps track of the ammount of runs.
+	 */
 	private int runs = 1;
 
+	/**
+	 * LastPOP - the last integer that has been send to the output file
+	 */
 	private int lastPOP;
 
+	/**
+	 * @param randomNumbers
+	 *            These randomnumbers will fill the memory initially
+	 * @param app
+	 *            This is nececary so that we can get the names for het input and output file.
+	 */
 	public TomEnDaanHeapDeadSpace(int[] randomNumbers, Application app)
 	{
 		this.app = app;
-		this.randomNumbers = randomNumbers;
 		heapSize = mSize;
-		initFillMemory();
-		buildHeap();
-		printArray();
+		initFillMemory(randomNumbers);
 		int next = app.getNextNumber();
 		while (next != -1)
 		{
 			push(next);
 			next = app.getNextNumber();
 		}
-		System.out.println("runs: " + runs);
-		app.closeFile();
+		System.out.println("Heap with Deadspace - Daan Roeterink & Tom Kostense - EIN2a");
+		System.out.println("Optimization is set to: " + optimisation);
+		System.out.println("-----------------------------------------------------------");
+		System.out.println("Amount of nececary runs: " + runs);
 	}
 
-	public void initFillMemory()
+	/**
+	 * This function will fill the memory for the first time and then call buildheap
+	 * 
+	 * @param randomNumbers
+	 *            randomnumbers to fill the memory
+	 */
+	public void initFillMemory(int[] randomNumbers)
 	{
-		// System.out.println("initFill");
 		for (int i = 0; i < heapSize; i++)
 		{
 			memory[i] = randomNumbers[i];
 			percolateUp(i);
 		}
+		buildHeap();
 	}
 
 	public void buildHeap()
 	{
-		// System.out.println("buildheap");
 		for (int i = 0; i < heapSize; i++)
 		{
 			percolateUp(i);
@@ -72,14 +93,22 @@ public class TomEnDaanHeapDeadSpace
 		}
 	}
 
+	/**
+	 * @return Root of the current Heap
+	 */
 	public int popHeap()
 	{
 		int returnValue = memory[0];
 		lastPOP = returnValue;
-
 		return returnValue;
 	}
 
+	/**
+	 * Whille add nextNumber to the memory (heap or deadspace)
+	 * 
+	 * @param nextNumber
+	 *            The nextNumber to work with
+	 */
 	public void add(int nextNumber)
 	{
 		if (nextNumber != -1)
@@ -90,34 +119,31 @@ public class TomEnDaanHeapDeadSpace
 				deadspaceSize++;
 				memory[0] = memory[heapSize];
 				memory[heapSize] = nextNumber;
-				// System.out.println("out deadspace: " + nextNumber);
 			}
 			else
 			{
 				memory[0] = nextNumber;
 				percolateDown();
-				// System.out.println("out heap: " + nextNumber);
 			}
 		}
 	}
 
+	/**
+	 * @param nextNumber
+	 */
 	public void push(int nextNumber)
 	{
 		boolean inserted = false;
 		if (heapSize > 0)
 		{
-			if (nextNumber < lastPOP && nextNumber > memory[0] && optimalisation)
+			if (nextNumber < lastPOP && nextNumber > memory[0] && optimisation)
 			{
 				this.app.writeToFile(nextNumber);
 				inserted = true;
 			}
 			int writeValue = popHeap();
-			// System.out.println("Write to run writevalue: " + writeValue);
 			this.app.writeToFile(writeValue);
 		}
-		// buildHeap();
-		// System.out.println("Heapsize :" + heapSize);
-		// System.out.println("deadSpaceSize: " + deadspaceSize);
 		if (heapSize == 0)
 		{
 			heapSize = mSize;
@@ -125,8 +151,6 @@ public class TomEnDaanHeapDeadSpace
 			buildHeap();
 			runs++;
 			this.app.newRun();
-			// System.out.println("runs: " + runs);
-			// printArray();
 		}
 		else if (!inserted)
 		{

@@ -7,7 +7,7 @@ import java.util.Random;
 public class RandomFileNumberGenerator
 {
 
-	public static final int RANDOMNUMBERDISTANCE = 1000000;
+	public static final int RANDOMNUMBERDISTANCE = 30000;
 
 	public RandomFileNumberGenerator()
 	{
