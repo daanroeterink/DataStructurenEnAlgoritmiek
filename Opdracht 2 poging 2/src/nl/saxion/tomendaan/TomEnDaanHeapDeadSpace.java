@@ -67,7 +67,6 @@ public class TomEnDaanHeapDeadSpace
 		for (int i = 0; i < heapSize; i++)
 		{
 			memory[i] = randomNumbers[i];
-			percolateUp(i);
 		}
 		buildHeap();
 	}
@@ -76,7 +75,8 @@ public class TomEnDaanHeapDeadSpace
 	{
 		for (int i = 0; i < heapSize; i++)
 		{
-			percolateUp(i);
+			percolateDown();
+			// percolateUp(i);
 		}
 	}
 
