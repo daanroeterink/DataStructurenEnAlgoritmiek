@@ -52,17 +52,29 @@ public class TomEnDaanHeapDeadSpace
 		}
 		if (memory.length != 0)
 		{
-			heapSize = mSize;
-			deadspaceSize = 0;
-			buildHeap();
-			runs++;
-			this.app.newRun();
-			while (heapSize > 0)
+			for (int i = 0; i < heapSize; i++)
 			{
-				push(memory[0]);
-				memory[0] = memory[heapSize - 1];
-				heapSize--;
+				push(memory[i]);
+				memory[i] = -1;
 				buildHeap();
+			}
+			if (deadspaceSize > 0)
+			{
+				heapSize = mSize;
+				deadspaceSize = 0;
+				buildHeap();
+				runs++;
+				this.app.newRun();
+				while (heapSize > 0)
+				{
+					if (memory[0] != -1)
+					{
+						push(memory[0]);
+					}
+					memory[0] = memory[heapSize - 1];
+					heapSize--;
+					buildHeap();
+				}
 			}
 
 		}
@@ -94,7 +106,7 @@ public class TomEnDaanHeapDeadSpace
 
 	private void buildHeap()
 	{
-		for (int i = heapSize / 2 ; i >= 0; i--)
+		for (int i = heapSize / 2; i >= 0; i--)
 		{
 			percolateDown(i);
 		}
