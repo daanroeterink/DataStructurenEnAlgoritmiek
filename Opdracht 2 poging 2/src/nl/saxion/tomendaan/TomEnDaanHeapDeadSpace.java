@@ -50,6 +50,27 @@ public class TomEnDaanHeapDeadSpace
 			push(next);
 			next = app.getNextNumber();
 		}
+		if (memory.length != 0)
+		{
+			heapSize = mSize;
+			deadspaceSize = 0;
+			buildHeap();
+			runs++;
+			this.app.newRun();
+			while (heapSize > 0)
+			{
+				push(memory[0]);
+				memory[0] = memory[heapSize - 1];
+				heapSize--;
+				buildHeap();
+			}
+
+		}
+		this.app.closeFile();
+
+		System.out.println("HeapSize: " + heapSize);
+		System.out.println("Deadspace: " + deadspaceSize);
+		printArray();
 		System.out.println("Heap with Deadspace - Daan Roeterink & Tom Kostense - EIN2a");
 		System.out.println("Optimization is set to: " + optimisation);
 		System.out.println("-----------------------------------------------------------");
@@ -62,7 +83,7 @@ public class TomEnDaanHeapDeadSpace
 	 * @param randomNumbers
 	 *            randomnumbers to fill the memory
 	 */
-	public void initFillMemory(int[] randomNumbers)
+	private void initFillMemory(int[] randomNumbers)
 	{
 		for (int i = 0; i < heapSize; i++)
 		{
@@ -71,16 +92,22 @@ public class TomEnDaanHeapDeadSpace
 		buildHeap();
 	}
 
-	public void buildHeap()
+	private void buildHeap()
 	{
-		for (int i = 0; i < heapSize; i++)
+		// for (int i = 0; i < heapSize; i++)
+		// {
+		// // percolateDown();
+		// percolateUp(i);
+		// }
+
+		for (int i = heapSize; i >= 0; i--)
 		{
 			percolateDown();
 			// percolateUp(i);
 		}
 	}
 
-	public void percolateUp(int location)
+	private void percolateUp(int location)
 	{
 		// percolate up
 		while (memory[location] > memory[(location - 1) / 2])
@@ -96,7 +123,7 @@ public class TomEnDaanHeapDeadSpace
 	/**
 	 * @return Root of the current Heap
 	 */
-	public int popHeap()
+	private int popHeap()
 	{
 		int returnValue = memory[0];
 		lastPOP = returnValue;
@@ -109,7 +136,7 @@ public class TomEnDaanHeapDeadSpace
 	 * @param nextNumber
 	 *            The nextNumber to work with
 	 */
-	public void add(int nextNumber)
+	private void add(int nextNumber)
 	{
 		if (nextNumber != -1)
 		{
@@ -123,7 +150,6 @@ public class TomEnDaanHeapDeadSpace
 			else
 			{
 				memory[0] = nextNumber;
-				percolateDown();
 			}
 		}
 	}
@@ -159,7 +185,7 @@ public class TomEnDaanHeapDeadSpace
 		}
 	}
 
-	public void percolateDown()
+	private void percolateDown()
 	{
 		int position = 0;
 		boolean hasLeftChild = (position * 2) + 1 < heapSize;
@@ -208,7 +234,7 @@ public class TomEnDaanHeapDeadSpace
 		}
 	}
 
-	public void printArray()
+	private void printArray()
 	{
 		for (int i = 0; i < memory.length; i++)
 		{

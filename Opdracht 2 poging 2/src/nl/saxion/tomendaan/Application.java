@@ -64,10 +64,6 @@ public class Application
 			// System.out.println("in: " + t);
 			return Integer.parseInt(t);
 		}
-		else
-		{
-			closeFile();
-		}
 		return -1;
 	}
 
