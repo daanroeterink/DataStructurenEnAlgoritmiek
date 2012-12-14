@@ -94,29 +94,9 @@ public class TomEnDaanHeapDeadSpace
 
 	private void buildHeap()
 	{
-		// for (int i = 0; i < heapSize; i++)
-		// {
-		// // percolateDown();
-		// percolateUp(i);
-		// }
-
-		for (int i = heapSize; i >= 0; i--)
+		for (int i = heapSize / 2 ; i >= 0; i--)
 		{
-			percolateDown();
-			// percolateUp(i);
-		}
-	}
-
-	private void percolateUp(int location)
-	{
-		// percolate up
-		while (memory[location] > memory[(location - 1) / 2])
-		{
-			int temp = memory[location];
-			memory[location] = memory[(location - 1) / 2];
-			memory[(location - 1) / 2] = temp;
-			// ask parent to percolate up too
-			location = (location - 1) / 2;
+			percolateDown(i);
 		}
 	}
 
@@ -181,13 +161,13 @@ public class TomEnDaanHeapDeadSpace
 		else if (!inserted)
 		{
 			add(nextNumber);
-			percolateDown();
+			percolateDown(0);
 		}
 	}
 
-	private void percolateDown()
+	private void percolateDown(int pos)
 	{
-		int position = 0;
+		int position = pos;
 		boolean hasLeftChild = (position * 2) + 1 < heapSize;
 		boolean hasRightChild = (position * 2) + 2 < heapSize;
 
