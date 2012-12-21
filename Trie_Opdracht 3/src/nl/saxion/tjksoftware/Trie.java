@@ -30,7 +30,14 @@ public class Trie
 		if (s.length() > 0)
 		{
 			s = s.toLowerCase();
-			childs.put(s.charAt(0), new Node(s.substring(1)));
+			if (s.length() > 1)
+			{
+				childs.put(s.charAt(0), new Node(s.substring(1)));
+			}
+			else
+			{
+				childs.put(s.charAt(0), new Node());
+			}
 		}
 	}
 

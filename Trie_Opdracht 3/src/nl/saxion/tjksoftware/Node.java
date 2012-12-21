@@ -34,7 +34,7 @@ public class Node
 			if (c == 0)
 			{
 				c = s.charAt(0);
-				d.add(new Data());
+				// d.add(new Data());
 			}
 			else
 			{
@@ -42,7 +42,6 @@ public class Node
 				{
 					if (childs.containsKey(s.charAt(1)))
 					{
-
 						childs.put(s.charAt(1), new Node(s.substring(1)));
 					}
 				}
