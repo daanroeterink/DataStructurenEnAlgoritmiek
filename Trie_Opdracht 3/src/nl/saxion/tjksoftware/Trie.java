@@ -1,19 +1,22 @@
 package nl.saxion.tjksoftware;
 
+import java.util.HashMap;
+
 public class Trie
 {
 
 	/**
 	 * The root Node for the Trie
 	 */
-	private Node root;
+
+	private HashMap<Character, Node> childs = new HashMap<Character, Node>();
 
 	/**
 	 * Empty constructor that will create the Trie
 	 */
 	public Trie()
 	{
-		root = new Node();
+
 	}
 
 	/**
@@ -24,7 +27,11 @@ public class Trie
 	 */
 	public void insert(String s)
 	{
-		root.insert(s);
+		if (s.length() > 0)
+		{
+			s = s.toLowerCase();
+			childs.put(s.charAt(0), new Node(s.substring(1)));
+		}
 	}
 
 	/**
