@@ -16,16 +16,16 @@ public class Node
 
 	}
 
-	public Node(String s)
+	public Node(String s, Data d)
 	{
-		insert(s);
+		insert(s,d);
 	}
 
 	/**
 	 * 
 	 * @param s
 	 */
-	public void insert(String s)
+	public void insert(String s, Data d)
 	{
 
 		if (s.length() > 0)
@@ -40,7 +40,7 @@ public class Node
 				{
 					if (childs.containsKey(s.charAt(1)))
 					{
-						childs.put(s.charAt(1), new Node(s.substring(1)));
+						childs.put(s.charAt(1), new Node(s.substring(1),d));
 					}
 				}
 			}
@@ -48,7 +48,7 @@ public class Node
 		// Last character in this word
 		if (s.length() == 1)
 		{
-			d = new Data();
+			this.d = d;
 		}
 	}
 }

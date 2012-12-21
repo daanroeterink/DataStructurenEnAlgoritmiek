@@ -25,14 +25,14 @@ public class Trie
 	 * @param s
 	 *            The string that will be inserted
 	 */
-	public void insert(String s)
+	public void insert(String s, Data d)
 	{
 		if (s.length() > 0)
 		{
 			s = s.toLowerCase();
 			if (s.length() > 1)
 			{
-				childs.put(s.charAt(0), new Node(s.substring(1)));
+				childs.put(s.charAt(0), new Node(s.substring(1),d));
 			}
 			else
 			{
