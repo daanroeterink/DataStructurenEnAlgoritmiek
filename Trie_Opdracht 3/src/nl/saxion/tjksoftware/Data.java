@@ -9,8 +9,6 @@ public class Data
 
 	private ArrayList<Integer> locations = new ArrayList<Integer>();
 
-	private boolean endOfWord;
-
 	/**
 	 * This will add a location to the Locations list
 	 * 

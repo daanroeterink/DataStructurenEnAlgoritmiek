@@ -1,14 +1,13 @@
 package nl.saxion.tjksoftware;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class Node
 {
 
 	private char c;
 
-	private List<Data> d;
+	private Data d;
 
 	private HashMap<Character, Node> childs = new HashMap<Character, Node>();
 
@@ -34,7 +33,6 @@ public class Node
 			if (c == 0)
 			{
 				c = s.charAt(0);
-				// d.add(new Data());
 			}
 			else
 			{
@@ -46,6 +44,11 @@ public class Node
 					}
 				}
 			}
+		}
+		// Last character in this word
+		if (s.length() == 1)
+		{
+			d = new Data();
 		}
 	}
 }
