@@ -25,7 +25,7 @@ public class Trie
 	 * @param s
 	 *            The string that will be inserted
 	 */
-	public void insert(String s)
+	public void insert(String s, Data d)
 	{
 		if (s.length() > 0)
 		{

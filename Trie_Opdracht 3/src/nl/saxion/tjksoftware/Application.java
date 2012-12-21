@@ -24,12 +24,14 @@ public class Application
 		}
 
 		Trie trie = new Trie();
-		trie.insert("Aap");
-		trie.insert("Noot");
-		trie.insert("Mies");
-		trie.insert("Aardappel");
-		trie.insert("Peer");
-		trie.insert("Hond");
+		int teller = 1;
+		while (scanner.hasNext() && teller < 100)
+		{
+			Data data = new data();
+			data.addLocation(teller);
+			trie.insert(scanner.next(), data);
+			teller++;
+		}
 	}
 
 	/**
