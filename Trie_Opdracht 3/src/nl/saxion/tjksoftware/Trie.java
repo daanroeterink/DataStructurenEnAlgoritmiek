@@ -27,9 +27,7 @@ public class Trie {
 		if (s.length() > 0) {
 			s = s.toLowerCase();
 			if (s.length() > 1) {
-				childs.put(s.charAt(0), new Node(s.substring(1), d));
-			} else {
-				childs.put(s.charAt(0), new Node());
+				childs.put(s.charAt(0), new Node(s.substring(0), d));
 			}
 		}
 	}

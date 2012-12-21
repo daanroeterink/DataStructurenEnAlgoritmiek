@@ -27,11 +27,10 @@ public class Node {
 		if (s.length() > 0) {
 			if (c == 0) {
 				c = s.charAt(0);
-			} else {
-				if (s.length() > 1) {
-					if (!childs.containsKey(s.charAt(1))) {
-						childs.put(s.charAt(1), new Node(s.substring(1), d));
-					}
+			}
+			if (s.length() > 1) {
+				if (!childs.containsKey(s.charAt(1))) {
+					childs.put(s.charAt(1), new Node(s.substring(1), d));
 				}
 			}
 		}
@@ -52,10 +51,10 @@ public class Node {
 			}
 		}
 		if (s.length() > 0) {
-			char c = s.charAt(0);
-			if (childs.containsKey(c)) {
+			char cTemp = s.charAt(0);
+			if (childs.containsKey(cTemp)) {
 				if (s.length() > 1)
-					return childs.get(c).search(s.substring(1));
+					return childs.get(cTemp).search(s.substring(1));
 				else
 					return null;
 			}
