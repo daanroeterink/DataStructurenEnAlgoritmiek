@@ -2,8 +2,7 @@ package nl.saxion.tjksoftware;
 
 import java.util.HashMap;
 
-public class Trie
-{
+public class Trie {
 
 	/**
 	 * The root Node for the Trie
@@ -14,8 +13,7 @@ public class Trie
 	/**
 	 * Empty constructor that will create the Trie
 	 */
-	public Trie()
-	{
+	public Trie() {
 
 	}
 
@@ -25,17 +23,12 @@ public class Trie
 	 * @param s
 	 *            The string that will be inserted
 	 */
-	public void insert(String s, Data d)
-	{
-		if (s.length() > 0)
-		{
+	public void insert(String s, Data d) {
+		if (s.length() > 0) {
 			s = s.toLowerCase();
-			if (s.length() > 1)
-			{
-				childs.put(s.charAt(0), new Node(s.substring(1),d));
-			}
-			else
-			{
+			if (s.length() > 1) {
+				childs.put(s.charAt(0), new Node(s.substring(1), d));
+			} else {
 				childs.put(s.charAt(0), new Node());
 			}
 		}
@@ -49,9 +42,14 @@ public class Trie
 	 * @return Data that has been found
 	 * 
 	 */
-	public Data search(String s)
-	{
-		// TODO: Create a search function
+	public Data search(String s) {
+		if (s.length() > 0) {
+			char c = s.charAt(0);
+			if (childs.containsKey(c)) {
+				if (s.length() > 1)
+					return childs.get(c).search(s.substring(1));
+			}
+		}
 		return null;
 	}
 
@@ -61,8 +59,11 @@ public class Trie
 	 * @param s
 	 *            the string to delete.
 	 */
-	public void delete(String s)
-	{
+	public void delete(String s) {
 		// TODO: Create a delete function
+	}
+
+	public void fancyPrint() {
+
 	}
 }
