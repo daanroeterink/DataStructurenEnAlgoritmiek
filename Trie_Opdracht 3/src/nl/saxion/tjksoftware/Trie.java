@@ -1,24 +1,54 @@
 package nl.saxion.tjksoftware;
 
-import java.util.HashMap;
+public class Trie
+{
 
-public class Trie {
-
+	/**
+	 * The root Node for the Trie
+	 */
 	private Node root;
 
-	public Trie() {
+	/**
+	 * Empty constructor that will create the Trie
+	 */
+	public Trie()
+	{
 		root = new Node();
 	}
 
-	public void insert(String s, Data d) {
+	/**
+	 * Insert a string in the Trie
+	 * 
+	 * @param s
+	 *            The string that will be inserted
+	 */
+	public void insert(String s)
+	{
 		root.insert(s);
 	}
 
-	public Data search(String s) {
-
+	/**
+	 * This will search a word in the trie
+	 * 
+	 * @param s
+	 *            The string that will be searched for
+	 * @return Data that has been found
+	 * 
+	 */
+	public Data search(String s)
+	{
+		// TODO: Create a search function
+		return null;
 	}
 
-	public void delete(String s) {
-
+	/**
+	 * This will delete the given string from the Trie.
+	 * 
+	 * @param s
+	 *            the string to delete.
+	 */
+	public void delete(String s)
+	{
+		// TODO: Create a delete function
 	}
 }

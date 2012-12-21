@@ -2,21 +2,45 @@ package nl.saxion.tjksoftware;
 
 import java.util.ArrayList;
 
-public class Data {
+public class Data
+{
 
 	private char c;
+
 	private ArrayList<Integer> locations = new ArrayList<Integer>();
+
 	private boolean endOfWord;
 
-	public void addLocation(int location) {
+	/**
+	 * This will add a location to the Locations list
+	 * 
+	 * @param location
+	 *            The location to be set
+	 */
+	public void addLocation(int location)
+	{
 		locations.add(location);
 	}
 
-	public void setChar(char newChar) {
+	/**
+	 * This will set the character for this Data
+	 * 
+	 * @param newChar
+	 *            Character that will be set
+	 */
+	public void setChar(char newChar)
+	{
 		c = newChar;
 	}
-	
-	public void setEndOfWord(boolean value) {
+
+	/**
+	 * This will set the boolean EndOfWord.
+	 * 
+	 * @param value
+	 *            boolean that will be set
+	 */
+	public void setEndOfWord(boolean value)
+	{
 		endOfWord = value;
 	}
 
