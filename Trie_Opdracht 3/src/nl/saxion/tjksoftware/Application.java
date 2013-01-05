@@ -2,7 +2,6 @@ package nl.saxion.tjksoftware;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.List;
 import java.util.Scanner;
 
 public class Application
@@ -20,7 +19,6 @@ public class Application
 		}
 		catch (FileNotFoundException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -34,9 +32,16 @@ public class Application
 			teller++;
 		}
 		System.out.println("" + teller);
-		List<Integer> ammount = trie.search("god").getLocations();
-		for(Integer i : ammount) {
-			System.out.println(i);
+		System.out.println("Aantal verwijderd: " + trie.delete("god"));
+		Data result = trie.search("god");
+		if (result != null)
+		{
+			System.out.println("Gevonden aantal: " + result.getLocations().size());
+
+		}
+		else
+		{
+			System.out.println("Niet gevonden!");
 		}
 	}
 

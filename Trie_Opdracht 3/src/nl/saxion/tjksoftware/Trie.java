@@ -2,7 +2,8 @@ package nl.saxion.tjksoftware;
 
 import java.util.HashMap;
 
-public class Trie {
+public class Trie
+{
 
 	/**
 	 * The root Node for the Trie
@@ -13,7 +14,8 @@ public class Trie {
 	/**
 	 * Empty constructor that will create the Trie
 	 */
-	public Trie() {
+	public Trie()
+	{
 
 	}
 
@@ -23,11 +25,18 @@ public class Trie {
 	 * @param s
 	 *            The string that will be inserted
 	 */
-	public void insert(String s, Data d) {
-		if (s.length() > 0) {
+	public void insert(String s, Data d)
+	{
+		if (s.length() > 0)
+		{
 			s = s.toLowerCase();
-			if (s.length() > 1) {
-				childs.put(s.charAt(0), new Node(s.substring(0), d));
+			if (!childs.containsKey(s.charAt(0)))
+			{
+				childs.put(s.charAt(0), new Node(s, d));
+			}
+			else
+			{
+				childs.get(s.charAt(0)).insert(s.substring(1), d);
 			}
 		}
 	}
@@ -40,10 +49,13 @@ public class Trie {
 	 * @return Data that has been found
 	 * 
 	 */
-	public Data search(String s) {
-		if (s.length() > 0) {
+	public Data search(String s)
+	{
+		if (s.length() > 0)
+		{
 			char c = s.charAt(0);
-			if (childs.containsKey(c)) {
+			if (childs.containsKey(c))
+			{
 				if (s.length() > 1)
 					return childs.get(c).search(s.substring(1));
 			}
@@ -56,12 +68,19 @@ public class Trie {
 	 * 
 	 * @param s
 	 *            the string to delete.
+	 * @return amount of deleted words.
 	 */
-	public void delete(String s) {
-		// TODO: Create a delete function
-	}
-
-	public void fancyPrint() {
-
+	public int delete(String s)
+	{
+		int amount = search(s).getLocations().size();
+		if (amount > 0)
+		{
+			childs.get(s.charAt(0)).delete(s.substring(1));
+			if (childs.get(s.charAt(0)).getChilds().size() == 0)
+			{
+				childs.remove(s.charAt(0));
+			}
+		}
+		return amount;
 	}
 }
