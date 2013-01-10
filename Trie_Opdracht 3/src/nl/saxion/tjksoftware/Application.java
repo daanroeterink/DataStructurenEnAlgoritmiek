@@ -32,8 +32,8 @@ public class Application
 			teller++;
 		}
 		System.out.println("" + teller);
-		System.out.println("Aantal verwijderd: " + trie.delete("god"));
-		Data result = trie.search("god");
+		System.out.println("Aantal verwijderd: " + trie.delete("de"));
+		Data result = trie.search("den");
 		if (result != null)
 		{
 			System.out.println("Gevonden aantal: " + result.getLocations().size());
