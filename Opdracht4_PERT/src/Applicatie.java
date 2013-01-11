@@ -13,8 +13,8 @@ public class Applicatie {
 		// createTestingData();
 		createExampleData();
 		createTopologicalList();
-		getMinimumWeight();
-		getMaximumWeigth();
+		getStartTime();
+		getLastStartTime();
 
 		for (Vak vak : TopoList) {
 			System.out.println(vak.getNaam() + " " + vak.getMinPathValue()
@@ -93,6 +93,7 @@ public class Applicatie {
 		Vak vak5 = new Vak("E");
 		Vak vak6 = new Vak("F");
 		Vak vak7 = new Vak("G");
+		Vak vak8 = new Vak("H");
 
 		vakken.add(vak1);
 		vakken.add(vak2);
@@ -101,6 +102,7 @@ public class Applicatie {
 		vakken.add(vak5);
 		vakken.add(vak6);
 		vakken.add(vak7);
+		vakken.add(vak8);
 
 		for (Vak v : vakken) {
 			netwerk.putVertex(v);
@@ -115,9 +117,10 @@ public class Applicatie {
 		netwerk.putEdge(vak5, vak6, 1);
 		netwerk.putEdge(vak7, vak6, 2);
 		netwerk.putEdge(vak6, vak3, 1);
+		netwerk.putEdge(vak8, vak7, 4);
 	}
 
-	public void getMinimumWeight() {
+	public void getStartTime() {
 		for (Vak v : TopoList) {
 			int order = TopoList.indexOf(v);
 			if (order == 0) {
@@ -141,17 +144,18 @@ public class Applicatie {
 		}
 	}
 
-	public void getMaximumWeigth() {
+	public void getLastStartTime() {
 		Collections.reverse(TopoList);
 
 		for (Vak v : TopoList) {
 			int order = TopoList.indexOf(v);
-			if (order == 0 || order == TopoList.size() - 1) {
+			if (order == 0) {
 				v.setMaxPathValue(v.getMinPathValue());
 			}
 			for (Vak vak : TopoList) {
 				if (netwerk.hasEdge(vak, v)) {
 					int maxValue = v.getMaxPathValue() - netwerk.edge(vak, v);
+					if(vak.getMaxPathValue() < 0 || maxValue < vak.getMaxPathValue())
 						vak.setMaxPathValue(maxValue);
 				}
 			}

@@ -2,7 +2,7 @@ public class Vak {
 
 	private String naam;
 	private int minPathValue;
-	private int maxPathValue;
+	private int maxPathValue = -1;
 
 	public Vak(String naam) {
 		this.naam = naam;
