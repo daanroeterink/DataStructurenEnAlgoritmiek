@@ -3,27 +3,33 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class Applicatie {
+public class Applicatie
+{
 
 	private PERTNetwerk<Vak, Integer> netwerk = new PERTNetwerk<Vak, Integer>();
+
 	List<Vak> vakken = new ArrayList<Vak>();
+
 	List<Vak> TopoList = new ArrayList<Vak>();
 
-	public Applicatie() {
+	public Applicatie()
+	{
 		// createTestingData();
 		createExampleData();
 		createTopologicalList();
 		getStartTime();
 		getLastStartTime();
 
-		for (Vak vak : TopoList) {
+		for (Vak vak : TopoList)
+		{
 			System.out.println(vak.getNaam() + " " + vak.getMinPathValue()
-					+ " " + vak.getMaxPathValue());
+				+ " " + vak.getMaxPathValue());
 		}
 
 	}
 
-	public void createTestingData() {
+	public void createTestingData()
+	{
 		Vak vak1 = new Vak("D&A opdracht 1");
 		Vak vak2 = new Vak("Concurrency opdracht 1");
 		Vak vak3 = new Vak("Server en clients start sprint 1");
@@ -62,7 +68,8 @@ public class Applicatie {
 		vakken.add(vak17);
 		vakken.add(vak18);
 
-		for (Vak v : vakken) {
+		for (Vak v : vakken)
+		{
 			netwerk.putVertex(v);
 		}
 
@@ -85,7 +92,8 @@ public class Applicatie {
 		netwerk.putEdge(vak6, vak18, 13);
 	}
 
-	public void createExampleData() {
+	public void createExampleData()
+	{
 		Vak vak1 = new Vak("A");
 		Vak vak2 = new Vak("B");
 		Vak vak3 = new Vak("C");
@@ -104,7 +112,8 @@ public class Applicatie {
 		vakken.add(vak7);
 		vakken.add(vak8);
 
-		for (Vak v : vakken) {
+		for (Vak v : vakken)
+		{
 			netwerk.putVertex(v);
 		}
 
@@ -120,23 +129,34 @@ public class Applicatie {
 		netwerk.putEdge(vak8, vak7, 4);
 	}
 
-	public void getStartTime() {
-		for (Vak v : TopoList) {
+	public void getStartTime()
+	{
+		for (Vak v : TopoList)
+		{
 			int order = TopoList.indexOf(v);
-			if (order == 0) {
+			if (order == 0)
+			{
 				v.setMinPathValue(0);
-			} else {
-				for (Vak vak : TopoList) {
+			}
+			else
+			{
+				for (Vak vak : TopoList)
+				{
 					int order2 = TopoList.indexOf(vak);
-					if (order2 < order) {
-						if (netwerk.hasEdge(vak, v)) {
+					if (order2 < order)
+					{
+						if (netwerk.hasEdge(vak, v))
+						{
 							if (v.getMinPathValue() < netwerk.edge(vak, v)
-									+ vak.getMinPathValue()) {
+								+ vak.getMinPathValue())
+							{
 								v.setMinPathValue(netwerk.edge(vak, v)
-										+ vak.getMinPathValue());
+									+ vak.getMinPathValue());
 							}
 						}
-					} else {
+					}
+					else
+					{
 						break;
 					}
 				}
@@ -144,18 +164,23 @@ public class Applicatie {
 		}
 	}
 
-	public void getLastStartTime() {
+	public void getLastStartTime()
+	{
 		Collections.reverse(TopoList);
 
-		for (Vak v : TopoList) {
+		for (Vak v : TopoList)
+		{
 			int order = TopoList.indexOf(v);
-			if (order == 0) {
+			if (order == 0)
+			{
 				v.setMaxPathValue(v.getMinPathValue());
 			}
-			for (Vak vak : TopoList) {
-				if (netwerk.hasEdge(vak, v)) {
+			for (Vak vak : TopoList)
+			{
+				if (netwerk.hasEdge(vak, v))
+				{
 					int maxValue = v.getMaxPathValue() - netwerk.edge(vak, v);
-					if(vak.getMaxPathValue() < 0 || maxValue < vak.getMaxPathValue())
+					if (vak.getMaxPathValue() < 0 || maxValue < vak.getMaxPathValue())
 						vak.setMaxPathValue(maxValue);
 				}
 			}
@@ -163,21 +188,28 @@ public class Applicatie {
 		Collections.reverse(TopoList);
 	}
 
-	public void createTopologicalList() {
-		while (vakken.size() > 0) {
+	public void createTopologicalList()
+	{
+		while (vakken.size() > 0)
+		{
 			Iterator<Vak> i = vakken.iterator();
-			while (i.hasNext()) {
+			while (i.hasNext())
+			{
 				Vak v = i.next();
 				boolean hasedge = false;
-				for (Vak vak : vakken) {
-					if (vak != v) {
-						if (netwerk.hasEdge(vak, v)) {
+				for (Vak vak : vakken)
+				{
+					if (vak != v)
+					{
+						if (netwerk.hasEdge(vak, v))
+						{
 							hasedge = true;
 							break;
 						}
 					}
 				}
-				if (!hasedge) {
+				if (!hasedge)
+				{
 					TopoList.add(v);
 					i.remove();
 				}
@@ -185,7 +217,8 @@ public class Applicatie {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		new Applicatie();
 	}
 }
