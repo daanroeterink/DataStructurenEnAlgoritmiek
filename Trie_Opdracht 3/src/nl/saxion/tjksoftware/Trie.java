@@ -72,13 +72,18 @@ public class Trie
 	 */
 	public int delete(String s)
 	{
-		int amount = search(s).getLocations().size();
-		if (amount > 0)
+		int amount = 0;
+		Data d = search(s);
+		if (d != null)
 		{
-			childs.get(s.charAt(0)).delete(s.substring(1));
-			if (childs.get(s.charAt(0)).getChilds().size() == 0)
+			amount = d.getLocations().size();
+			if (amount > 0)
 			{
-				childs.remove(s.charAt(0));
+				childs.get(s.charAt(0)).delete(s.substring(1));
+				if (childs.get(s.charAt(0)).getChilds().size() == 0)
+				{
+					childs.remove(s.charAt(0));
+				}
 			}
 		}
 		return amount;
