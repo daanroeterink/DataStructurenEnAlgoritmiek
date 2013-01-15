@@ -1,38 +1,49 @@
-public class Vak {
+public class Vak implements PertVertex
+{
 
 	private String naam;
+
 	private int minPathValue;
+
 	private int maxPathValue = -1;
 
-	public Vak(String naam) {
+	public Vak(String naam)
+	{
 		this.naam = naam;
 	}
 
-	public String getNaam() {
+	public String getNaam()
+	{
 		return naam;
 	}
 
-	public void setNaam(String naam) {
+	public void setNaam(String naam)
+	{
 		this.naam = naam;
 	}
 
-	public void print() {
+	public void print()
+	{
 		System.out.println(naam);
 	}
 
-	public int getMinPathValue() {
+	public int getMinPathValue()
+	{
 		return minPathValue;
 	}
 
-	public void setMinPathValue(int minPathValue) {
+	public void setMinPathValue(int minPathValue)
+	{
 		this.minPathValue = minPathValue;
 	}
 
-	public int getMaxPathValue() {
+	public int getMaxPathValue()
+	{
 		return maxPathValue;
 	}
 
-	public void setMaxPathValue(int maxPathValue) {
+	public void setMaxPathValue(int maxPathValue)
+	{
 		this.maxPathValue = maxPathValue;
 	}
 }
