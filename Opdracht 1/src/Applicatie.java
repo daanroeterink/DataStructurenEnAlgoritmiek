@@ -1,6 +1,6 @@
 
 /**
- * @author Tom Kostense, Daan Roeterink
+ * @author Daan Roeterink
  *
  */
 public class Applicatie {
