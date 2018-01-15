@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * @author Tom Kostense, Daan Roeterink
+ * @author Daan Roeterink
  * 
  * @param <V>
  * @param <E>
