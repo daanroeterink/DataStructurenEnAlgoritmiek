@@ -82,7 +82,7 @@ public class TomEnDaanHeapDeadSpace
 		System.out.println("HeapSize: " + heapSize);
 		System.out.println("Deadspace: " + deadspaceSize);
 		printArray();
-		System.out.println("Heap with Deadspace - Daan Roeterink & Tom Kostense - EIN2a");
+		System.out.println("Heap with Deadspace - Daan Roeterink - EIN2a");
 		System.out.println("Optimization is set to: " + optimisation);
 		System.out.println("-----------------------------------------------------------");
 		System.out.println("Amount of nececary runs: " + runs);
