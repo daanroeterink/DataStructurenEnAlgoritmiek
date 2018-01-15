@@ -1,7 +1,7 @@
 
 /**
  * @author Daan Roeterink
- * @author Tom Kostense Heab is a heap with buffer class.
+ * @author Heab is a heap with buffer class.
  */
 public class Heab {
 
