@@ -2,7 +2,7 @@ import java.util.Random;
 
 
 /**
- * @author Tom Kostense, Daan Roeterink
+ * @author Daan Roeterink
  *
  */
 public class Algoritme1 extends Algoritme{
