@@ -2,7 +2,6 @@ package nl.saxion.tomendaan;
 
 /**
  * @author Daan Roeterink
- * @author Tom Kostense
  */
 public class TomEnDaanHeapDeadSpace
 {
